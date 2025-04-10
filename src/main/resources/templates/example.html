@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        @page {
+            margin: 0;
+        }
+
+        h1 {
+            margin: 4px;
+            padding: 0;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        h2 {
+            margin: 4px;
+            padding: 0;
+            font-size: 12px;
+        }
+
+        h3 {
+            margin: 4px;
+            padding: 0;
+            font-size: 10px;
+        }
+
+        p {
+            margin: 4px;
+            padding: 0;
+            font-size: 8px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, 'sans-serif';
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .table th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+
+        .table td {
+            position: relative;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 5px;
+            border-radius: 2px;
+            background-color: #fdecea;
+            border: 1px solid #3a0d0d;
+            color: #d32f2f;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background-color: #f2dede;
+        }
+
+        .centered-box {
+            display: inline-flex;
+            justify-content: flex-start;
+            align-items: center;
+            border: 1px solid #6a0c0c;
+            border-radius: 1px;
+            padding: 10px 15px;
+            line-height: 1.5;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+<div style="margin: 0; padding: 0">
+
+    <h1 th:text="${title} + ' - ' + ${currentTime}"></h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Valeur</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item : ${items}">
+            <td th:text="${item.name}"></td>
+            <td th:if="${item.value > 3}">
+                <span class="badge" th:text="${item.value}"></span>
+            </td>
+            <td th:unless="${item.value > 3}" th:text="${item.value}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="centered-box">
+        Texte centré verticalement, aligné à gauche.
+    </div>
+
+</div>
+</body>
+</html>
