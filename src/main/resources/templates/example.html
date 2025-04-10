@@ -71,23 +71,49 @@
             background-color: #f2dede;
         }
 
+        .header {
+            width: 100%;
+            overflow: hidden; /* pour contenir les floats */
+            margin-bottom: 20px;
+        }
+
+        .header img {
+            float: left;
+            width: 10%;
+            height: auto;
+        }
+
+        .header h1 {
+            float: right;
+            width: 90%;
+            margin: 0;
+            padding-left: 10px;
+            text-align: left;
+        }
+
+
         .centered-box {
-            display: inline-flex;
-            justify-content: flex-start;
-            align-items: center;
+            display: table;
+            width: auto;
             border: 1px solid #6a0c0c;
             border-radius: 1px;
             padding: 10px 15px;
             line-height: 1.5;
             background-color: #f9f9f9;
+            text-align: left;
+            vertical-align: middle;
+            height: auto;
         }
     </style>
+
 </head>
 <body>
 <div style="margin: 0; padding: 0">
 
-    <h1 th:text="${title} + ' - ' + ${currentTime}"></h1>
-
+    <div class="header">
+        <img th:src="@{/images/logo.jpg}" alt="Logo"/>
+        <h1 th:text="${title} + ' - ' + ${currentTime}"></h1>
+    </div>
     <table class="table">
         <thead>
         <tr>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f9fa;
+        }
+        .highlight {
+            background-color: #fdecea;
+            color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+<img th:src="@{/images/logo.jpg}" alt="Logo"/>
+<h1 th:text="${title}"></h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Valeur</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${items}">
+        <td th:text="${item.name}"></td>
+        <td th:class="${item.value > 100} ? 'highlight'" th:text="${item.value}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
